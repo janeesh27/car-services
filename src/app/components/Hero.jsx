@@ -1,11 +1,56 @@
 "use client";
 import React from "react";
 import { useState } from "react";
+import axios from "axios";
+
 const Hero = () => {
   const [nav, setNav] = useState(false);
+
   const handleNav = () => {
     setNav(!nav);
   };
+  const [phoneNumber, setPhoneNumber] = useState("");
+
+  const [loading, setLoading] = useState(false);
+
+  // const [otp, setOtp] = useState("");
+
+  function registerUser() {
+    if (phoneNumber) {
+      setLoading(true);
+      axios
+        .post("https://kv-varlu.vercel.app/api/v1/register", {
+          mobileNumber: phoneNumber,
+        })
+        .then(function (response) {
+          verifyOtp(response?.data?.user?.otp);
+        })
+        .catch(function (error) {
+          setLoading(false);
+        })
+        .finally(function () {
+          setLoading(false);
+        });
+    }
+  }
+  function verifyOtp(otp) {
+    if (otp) {
+      axios
+        .post("https://kv-varlu.vercel.app/api/v1/verify/otp", {
+          mobileNumber: phoneNumber,
+          otp: otp,
+        })
+        .then(function (response) {
+          if (response?.status === 200) {
+            setNav(false);
+            alert("User loggedin sucessfully");
+          }
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+  }
 
   return (
     <>
@@ -84,11 +129,19 @@ const Hero = () => {
                 Login
               </div>
               <input
+                type="number"
                 placeholder="+91 | Mobile Number "
                 className=" text-[28px] p-4 rounded-lg text-left border-[2px] border-blue-600"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e?.target?.value)}
               ></input>
-              <div className="text-white bg-blue-600 mt-4 p-6 text-center text-[24px] font-semibold w-[460px] rounded-md hie">
-                Continue
+              <div>
+                <div
+                  className="text-white bg-blue-600 mt-4 p-6 text-center text-[24px] font-semibold w-[460px] rounded-md hie"
+                  onClick={registerUser}
+                >
+                  {loading ? "loading..." : "continue"}
+                </div>
               </div>
             </div>
           </div>
