@@ -55,7 +55,7 @@ const Hero = () => {
   return (
     <>
       <div
-        className="h-[60vh] bg-cover "
+        className="h-[100vh] bg-cover "
         style={{
           backgroundImage: `url('homepage/hero.jpg')`,
         }}
@@ -107,7 +107,7 @@ const Hero = () => {
         <div
           className={
             nav
-              ? " fixed right-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-white p-10 ease-in duration-500"
+              ? " fixed right-0 top-0 w-[35%] h-screen bg-white p-10 ease-in duration-500"
               : "fixed right-[-100%] top-0 p-10 ease-in duration-500"
           }
         >
@@ -120,7 +120,7 @@ const Hero = () => {
                 &larr;
               </div>
             </div>
-            <div className="flex flex-col space-y-4 mt-[150px]">
+            <div className="flex flex-col space-y-4 mt-[50px]">
               <img
                 src="homepage/login.png"
                 className="w-[500px] height-[400px]"
