@@ -5,6 +5,7 @@ import Navigator from "./components/Navigator";
 import Carservice from "./components/Carservice";
 import Reviews from "./components/Reviews";
 import BookYourCar from "./components/BookYourCar";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <Carservice />
       <Customerservice />
       <Reviews />
+      <Footer />
     </>
   );
 }
