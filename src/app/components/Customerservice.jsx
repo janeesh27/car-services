@@ -2,7 +2,7 @@ import React from "react";
 
 const Customerservice = () => {
   return (
-    <div className="ml-2 mt-16">
+    <div id="ccs" className="ml-2 mt-16">
       <div className="text-[1.25rem] text-[#001B39] font-[700] text-left ml-8">
         Curated Custom Services
       </div>
@@ -44,7 +44,10 @@ const Customerservice = () => {
           <img src="homepage/ws4.png" className="w-[250px] h-[250px]"></img>
         </div>
       </div>
-      <div className="text-[1.25rem] text-[#001B39] font-[700] text-left ml-8 pt-16">
+      <div
+        id="hcs"
+        className="text-[1.25rem] text-[#001B39] font-[700] text-left ml-8 pt-16"
+      >
         How Car Service Works?
       </div>
       <div className="mt-8 ml-[3rem] flex space-x-16 w-[60%]">

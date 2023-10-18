@@ -30,7 +30,7 @@ const userProfiles = [
 const Reviews = () => {
   return (
     <>
-      <div className="mt-16">
+      <div id="rating" className="mt-16">
         <div className="text-[1.25rem] text-[#001B39] font-[700] text-left ml-8">
           What Car Owners in Hyderabad Say
         </div>

@@ -9,12 +9,36 @@ const Navigator = () => {
   };
 
   const items = [
-    "Our Service",
-    "Curated Custom Service",
-    "How Car Service Works?",
-    "Rating & Reviews",
-    "Price List",
-    "Frequently Asked Questions",
+    {
+      name: "Our Service",
+      id: "ourservice",
+    },
+    {
+      name: "Curated Custom Service",
+      id: "ccs",
+    },
+    {
+      name: "How Car Service Works?",
+      id: "hcs",
+    },
+    {
+      name: "Rating & Reviews",
+      id: "rating",
+    },
+    {
+      name: "Price List",
+      id: "ourservice",
+    },
+    {
+      name: "Frequently Asked Questions",
+      id: "ourservice",
+    },
+    // "Our Service",
+    // "Curated Custom Service",
+    // "How Car Service Works?",
+    // "Rating & Reviews",
+    // "Price List",
+    // "Frequently Asked Questions",
   ];
 
   return (
@@ -30,15 +54,16 @@ const Navigator = () => {
           }}
         >
           {items.map((item, index) => (
-            <div
+            <a
+              href={`#${item?.id}`}
               key={index}
               onClick={() => handleItemClick(index)}
               className={`${
                 selectedItem === index ? "font-bold underline" : ""
               } cursor-pointer`}
             >
-              {item}
-            </div>
+              {item?.name}
+            </a>
           ))}
         </div>
       </div>
